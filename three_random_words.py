@@ -3,6 +3,7 @@
 import json
 import common
 import wli
+import dev
 
 
 def mod_config(config):
@@ -89,7 +90,7 @@ def start():
                         ["Generate a password.", wli.generate],
                         ["Edit configuration.", mod_config],
                         ["Cross-reference an existing password.", wli.cross_ref],
-                        ["Attempt to crack an existing password."],
+                        ["Attempt to crack an existing password.", dev.crack],
                         ["Generate an average time-to-crack."],
                         ["Guess test."],
                         # Do not edit lines underneath.
