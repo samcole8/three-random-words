@@ -17,11 +17,11 @@ def generate(config):
     """Generate password from wordlist."""
     try:
 
-        # Open file and convert it to list format.
+        # Open file and convert to list format.
         with open(config["wordlist"], 'rb') as wordlist_file:
             wordlist = []
-            for _ in wordlist_file:
-                wordlist.append(wordlist_file.readline().decode().strip())
+            for line in wordlist_file:
+                wordlist.append(line.decode().strip())
 
         # Get random passwords and output them.
         password_count = common.integer_test("Number of passwords to generate")
@@ -39,3 +39,21 @@ def generate(config):
     except FileNotFoundError:
         common.error("Wordlist not found.")
     common.return_prompt()
+
+
+def cross_ref(config):
+    """Check if words appear in the wordlist."""
+    # Open file and convert it to list format.
+    with open(config["wordlist"], 'rb') as wordlist_file:
+        wordlist = []
+        for line in wordlist_file:
+            wordlist.append(line.decode().strip())
+    words = []
+    for i in range(0, config["word_count"]):
+        word = input(f"Enter word {i + 1}: ")
+        if word.lower() in wordlist:
+            words.append([word, "Hit"])
+        else:
+            words.append([word, "Miss"])
+    for word in words:
+        print(f"{word[0]}: {word[1]}")

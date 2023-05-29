@@ -88,7 +88,7 @@ def start():
                         # New options below here.
                         ["Generate a password.", wli.generate],
                         ["Edit configuration.", mod_config],
-                        ["Cross-reference an existing password."],
+                        ["Cross-reference an existing password.", wli.cross_ref],
                         ["Attempt to crack an existing password."],
                         ["Generate an average time-to-crack."],
                         ["Guess test."],
