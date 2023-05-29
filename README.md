@@ -1,5 +1,5 @@
 # three-random-words
-A "three random words" password generator inspired by NCSC guidance from 2021.
+A "three random words" password generator inspired by [NCSC guidance](https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words) from 2021
 
 ## Wordlists
 The wordlists used in this project are of varying length and quality. Typically the longer the list, the lower the quality of the words. By default the program uses english3.txt which is the shortest but most qualitative out of the packaged options.
