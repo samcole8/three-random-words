@@ -23,7 +23,7 @@ def integer_test(message, lower_limit=-math.inf, upper_limit=math.inf):
 
 def return_prompt():
     """Display simple return prompt."""
-    input("Press ENTER to return to the main menu.")
+    input("Press ENTER to return to the menu.")
 
 
 def error(message):
