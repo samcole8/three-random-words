@@ -18,13 +18,13 @@ def crack(config):
             wordlist.append(line.decode().strip())
 
     stack = []
-    print(pow(len(wordlist), config["word_count"]))
-    common.return_prompt()
-    if recurse(stack, wordlist, config["word_count"], main_hash) is True:
+    print("Search space size" + str(pow(len(wordlist), config["word_count"])))
+    input("Press ENTER to continue")
+    if recurse(stack, wordlist, config["word_count"], main_hash, password) is True:
         print("^^ HIT ^^")
     common.return_prompt()
 
-def recurse(stack, wordlist, word_count, main_hash):
+def recurse(stack, wordlist, word_count, main_hash, password):
     hit = False
     for item in wordlist:
         if hit is False:
@@ -32,11 +32,11 @@ def recurse(stack, wordlist, word_count, main_hash):
             if word_count == len(stack):
                 testword = "".join(stack)
                 print(f"Testing: {testword}")
-                test_hash = hashlib.sha256(testword.encode('utf-8')).hexdigest()
-                if test_hash == main_hash:
+                # test_hash = hashlib.sha256(testword.encode('utf-8')).hexdigest()
+                if testword == password:
                     hit = True
             else:
-                if recurse(stack, wordlist, word_count, main_hash) is True:
+                if recurse(stack, wordlist, word_count, main_hash, password) is True:
                     hit = True
             stack.pop()
     return hit
